@@ -5,7 +5,9 @@ Main = React.createClass({
                 <div className="full col-sm-9">
                     <div className="row">
                         <div className="col-sm-9">
-                            
+                            <Statusform/>
+                            Posts
+                            <button className="btn btn-md">More</button>
                         </div>
                     </div>
                 </div>
