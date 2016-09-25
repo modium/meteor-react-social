@@ -1,4 +1,4 @@
-Signupform = React.createClass({
+Signupform = React.createClass({    
     render(){
         return (
             <div className="row">
@@ -30,4 +30,4 @@ Signupform = React.createClass({
             </div>
         )
     }
-})
+});
