@@ -1,7 +1,7 @@
 Navbar = React.createClass({
     render(){
         return (
-            <div className="navbar navbar-blue navbar-fixed top">
+            <div className="navbar navbar-blue navbar-fixed-top">
                 <div className="navbar-header">
                     <button className="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                         <span className="sr-only">Toggle</span>
@@ -13,7 +13,7 @@ Navbar = React.createClass({
                         <i className="fa fa-facebook"></i>
                     </a>
                 </div>
-                <nav className="collapse navbar-collapse">
+                <nav className="collapse navbar-collapse" role="navigation">
                     <form role="form" className="navbar-form navbar-left">
                         <div className="input-group input-group-sm bs-example">
                             <input ref="searchText" id="typeahead" type="text" className="form-control tt-query"/>
