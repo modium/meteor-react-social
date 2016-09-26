@@ -1,13 +1,17 @@
 Post = React.createClass({
     render(){
         var dimage = '';
-        dimage = (
-            <div>
-                <div className="panel-thumbnail">
-                    <img src="http://placehold.it/150x150" alt="" className="img-responsive postimage img-thumbnail"/>
+
+        if(this.props.post.imageurl){ //if an imageurl was provided to this component
+            dimage = (
+                <div>
+                    <div className="panel-thumbnail">
+                        {/*<img src="http://placehold.it/150x150" alt="" className="img-responsive postimage img-thumbnail"/>*/}
+                        <img src={this.props.post.imageurl} alt="" className="img-responsive postimage img-thumbnail"/>
+                    </div>
                 </div>
-            </div>
-        )
+            );
+        }
 
         return (
             <div className="col-sm-12">
@@ -26,7 +30,8 @@ Post = React.createClass({
                         </div>
                     </div>
                     <div className="col-md-12 post-description">
-                        <h3>Hello World!</h3>
+                        {/*<h3>Hello World!</h3>*/}
+                        <h3>{this.props.post.message}</h3>
                         <br/>
                     </div>
                     <div className="col-md-12">
