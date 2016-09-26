@@ -5,6 +5,11 @@ Signupform = React.createClass({
         data.currentUser = Meteor.user();
         return data;
     },
+    getMeteorData(){
+        let data = {};
+        data.currentUser = Meteor.user();
+        return data;
+    },
     getInitialState(){
         return {
             message: '',
@@ -12,7 +17,7 @@ Signupform = React.createClass({
         }
     },
     displayError(message){
-        this.setState({message:message,messageClass:'alert alert-danger registerError'});
+        this.setState({message:message,messageClass:'alert alert-danger registerError'}); //if there's an error, change messageClass from hidden to alert
     },
     handleSubmit(e){
         e.preventDefault();
@@ -34,11 +39,15 @@ Signupform = React.createClass({
             }
         };
         Accounts.createUser(user,function(e){
+            // if(e){
+            //     that.displayError(e.reason);
+            // } else {
+            //     FlowRouter.go('/dashboard');
+            // }
+            FlowRouter.go('/dashboard');
             if(e){
                 that.displayError(e.reason);
-            } else {
-                FlowRouter.go('/dashboard');
-            }
+            }            
         })
     },
 

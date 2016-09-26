@@ -3,7 +3,12 @@ publicRoutes = FlowRouter.group({
 });
 
 privateRoutes = FlowRouter.group({
-    name:'privateroutes'
+    name:'privateroutes',
+    triggersEnter:[function(context,redirect){
+        if(!Meteor.userId()){
+            return FlowRouter.go('/'); //forces user to home page unless they're logged in
+        }
+    }]
 });
 
 publicRoutes.route('/',{
@@ -20,5 +25,14 @@ privateRoutes.route('/dashboard',{
         sidebar:<div><Sidebar/></div>,
         content:<div><Main/></div>
       })
+    }
+});
+
+publicRoutes.route('/signout',{
+    name:'Signout',
+    action:function(){
+        Meteor.logout(function(){
+            FlowRouter.go('/');
+        })
     }
 });
