@@ -36,3 +36,13 @@ publicRoutes.route('/signout',{
         })
     }
 });
+
+privateRoutes.route('/profile', {
+    name: 'Profile',
+    action: function () {
+        ReactLayout.render(Layout, {
+            sidebar: <Sidebar/>,
+            content: <Profile/>
+        })
+    }
+});
