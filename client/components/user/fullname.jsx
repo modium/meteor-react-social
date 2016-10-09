@@ -16,4 +16,4 @@ Fullname = React.createClass({
             <a href={personlink} className={this.props.klass}>{fullname}</a>
         )
     }
-});x
+});

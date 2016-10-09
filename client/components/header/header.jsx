@@ -40,13 +40,13 @@ Header = React.createClass({
                                 <span className="input-group-addon">
                                     <i className="fa fa-user"></i>
                                 </span>
-                                <input type="text" ref="email" placeholder="Email Address" name="email" id="email" className="form-control"/>
+                                <input type="email" ref="email" placeholder="Email Address" name="email" id="email" className="form-control"/>
                             </div>
                             <div className="input-group">
                                 <span className="input-group-addon">
                                     <i className="fa fa-lock"></i>
                                 </span>
-                                <input type="text" ref="password" placeholder="Password" name="password" id="password" className="form-control"/>
+                                <input type="password" ref="password" placeholder="Password" name="password" id="password" className="form-control"/>                
                             </div>
                             <button className="btn btn-primary">Login</button>
                             <br/>
