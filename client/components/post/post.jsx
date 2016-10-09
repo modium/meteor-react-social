@@ -19,6 +19,7 @@ Post = React.createClass({
                     <div className="post-heading">
                         <div className="pull-left image">
                             {/*Avatar*/}
+                            <Avatar klass="img-circle avatar" user={this.props.post.user._id}/>
                             <img src="http://placehold.it/48x48" alt="" className="img-circle"/>
                         </div>
                         <div className="pull-left meta">

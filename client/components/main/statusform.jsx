@@ -14,9 +14,12 @@ Statusform = React.createClass({
         e.preventDefault();
         var message = this.refs.sharing.value; //get the value of ref="sharing"
         var imageid = this.refs.imageid.value;
+        var imageurl = '';
         if(imageid){
             var image = Images.findOne({_id:imageid});
-            var imageurl = image.url();
+            if(image){
+                imageurl = image.url();
+            }
         }
         Meteor.call('Posts.insert',message,imageid,imageurl,function(err){
             if(err){
@@ -31,9 +34,9 @@ Statusform = React.createClass({
         var that = this;
         FS.Utility.eachFile(e,function(file){
             Images.insert(file,function(err,fileObj){
-                that.setState({image:fileObj._id,filename:fileObj.data.blob.name}); //loop through if user uploads multiple files
-            });
-        });
+                that.setState({imageurl:'/cfs/files/images/' + fileObj._id + '/' + fileObj.data.blob.name,filename:fileObj.data.blob.name}); //loop through if user uploads multiple files
+            })
+        })
     },
     render(){
         return (
@@ -43,10 +46,10 @@ Statusform = React.createClass({
                         Update Status
                     </div>
                     <form onSubmit={this.submitForm} className="form center-block">
-                        <input type="hidden" ref="imageid" value={this.state.image}/>
+                        <input type="hidden" ref="imageid" value={this.state.imageurl}/>
                         <div className="panel-body">
                             <div className="form-group">
-                                <textarea placeholder="What do you want to share" className="form-control input-lg" ref="sharing" id="sharing">
+                                <textarea placeholder="What do you want to share?" className="form-control input-lg" ref="sharing" id="sharing">
 
                                 </textarea>
                                 <h3>{this.state.filename||''}</h3>
