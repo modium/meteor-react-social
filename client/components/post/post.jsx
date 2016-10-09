@@ -53,7 +53,7 @@ Post = React.createClass({
                         </div>
                         <div className="pull-left meta">
                             <div className="title h5">
-                                <b>User Name</b>&nbsp;
+                                <b><Fullname user={this.props.post.user._id}/></b>&nbsp;
                                 made a post.
                             </div>
                             <div className="text-muted time">An hour ago</div>

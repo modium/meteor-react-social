@@ -46,3 +46,13 @@ privateRoutes.route('/profile', {
         })
     }
 });
+
+publicRoutes.route('/user/:fullname',{ //fullname is a passed parameter
+    name: 'UserHome',
+    action:function(params){
+        ReactLayout.render(Layout,{
+            sidebar:<Sidebar/>,
+            content:params.fullname ? <Home fullname={params.fullname}/> : 'No user found'
+        })
+    }
+});

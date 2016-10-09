@@ -6,11 +6,14 @@ Avatar = React.createClass({
     },
     mixins: [ReactMeteorData],
     getMeteorData(){
-        var userhandle = Meteor.subscribe('userlist',this.props.user);
-        var imagehandle = Meteor.subscribe('imagelist',this.props.user);
+        // var data = {};
+        // data.usr = Meteor.users.findOne({_id:this.props.user});
+        // data.img = Images.findOne({_id:data.usr.profile.avatar});
+        // return data;
+
         var data = {};
-        if(userhandle.ready() && imagehandle.ready()){
-            data.usr = Meteor.users.findOne({_id:this.props.user});
+        data.usr = Meteor.users.findOne({_id:this.props.user});
+        if(data.usr){
             data.img = Images.findOne({_id:data.usr.profile.avatar});
         }
         return data;
